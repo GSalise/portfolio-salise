@@ -90,25 +90,114 @@
           </div>
         </div>
       </section>
+
+      <!-- What I Do section -->
       <section
         id="whatIdo"
         class="min-h-screen text-gray-800 flex flex-col justify-center items-center"
       >
         <div
-          class="w-full flex flex-col items-center justify-center p-10 w-full bg-gray-900 bg-opacity-80 h-[600px]"
+          class="w-full flex flex-col items-center justify-center p-10 w-full h-[600px]"
         >
+          <h2 class="text-4xl font-bold mb-10 text-white">
+            My job is to ensure that...
+          </h2>
           <!-- Card Include -->
-          <div id="system-card-container"></div>
-          <script>
-            fetch("./cards/system-card.html")
-              .then((res) => res.text())
-              .then((html) => {
-                document.getElementById("system-card-container").innerHTML =
-                  html;
-              });
-          </script>
+          <div class="flex gap-10 flex-row">
+            <div id="system-card-container"></div>
+            <script>
+              fetch("./cards/system-card.html")
+                .then((res) => res.text())
+                .then((html) => {
+                  document.getElementById("system-card-container").innerHTML =
+                    html;
+                });
+            </script>
+            <div id="find-card-container"></div>
+            <script>
+              fetch("./cards/find-card.html")
+                .then((res) => res.text())
+                .then((html) => {
+                  document.getElementById("find-card-container").innerHTML =
+                    html;
+                });
+            </script>
+            <div id="secure-card-container"></div>
+            <script>
+              fetch("./cards/secure-card.html")
+                .then((res) => res.text())
+                .then((html) => {
+                  document.getElementById("secure-card-container").innerHTML =
+                    html;
+                });
+            </script>
+          </div>
         </div>
       </section>
+
+      <section
+        id="projects"
+        class="min-h-screen text-gray-800 flex flex-col justify-center items-center"
+      >
+        <div
+          class="w-full flex flex-col items-center justify-center p-10 bg-gray-900 bg-opacity-80 h-[700px]"
+        >
+          <h2 class="text-4xl font-bold mb-8 text-white text-center">
+            Projects
+          </h2>
+          <div class="flex flex-row gap-8 w-full justify-center items-start">
+            <!-- Description -->
+            <div class="flex-1 p-6 max-w-md">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Subnet Calculator
+              </h3>
+              <p class="text-white">
+                A subnet calculator application that I developed using Java. The
+                application allows users to input an IP address and subnet mask
+                to calculate various subnetting details such as network address,
+                broadcast address, number of hosts, and more.<br /><br />
+                The calculator is capable of handling CIDR and VLSM subnetting,
+                making it a versatile tool for network administrators and IT
+                professionals. The user interface is designed to be intuitive
+                and user-friendly, ensuring that users can easily navigate and
+                utilize the application's features.
+              </p>
+            </div>
+            <!-- Images -->
+            <div
+              class="flex-1 flex flex-row gap-4 justify-center items-center h-auto w-full"
+            >
+              <img
+                src="./assets/vlsm.png"
+                alt="VLSM Example"
+                class="rounded-lg w-full h-full object-contain cursor-pointer project-img"
+              />
+              <img
+                src="./assets/cidr.png"
+                alt="CIDR Example"
+                class="rounded-lg w-full h-full object-contain cursor-pointer project-img"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Image Modal -->
+    <div
+      id="img-modal"
+      class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden"
+    >
+      <span
+        id="img-modal-close"
+        class="absolute top-4 right-8 text-4xl text-white cursor-pointer select-none"
+        >&times;</span
+      >
+      <img
+        id="img-modal-content"
+        src=""
+        alt="Large Preview"
+        class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-lg border-4 border-white"
+      />
     </div>
     <script src="./index.js"></script>
     <script>
@@ -120,6 +209,29 @@
       }
       window.addEventListener("resize", resizeCanvas);
       resizeCanvas();
+    </script>
+    <script>
+      // Modal elements
+      const modal = document.getElementById("img-modal");
+      const modalImg = document.getElementById("img-modal-content");
+      const modalClose = document.getElementById("img-modal-close");
+
+      // Add click event to all images with class 'project-img'
+      document.querySelectorAll(".project-img").forEach((img) => {
+        img.addEventListener("click", function () {
+          modal.classList.remove("hidden");
+          modalImg.src = this.src;
+          modalImg.alt = this.alt;
+        });
+      });
+
+      // Close modal on X click
+      modalClose.onclick = () => modal.classList.add("hidden");
+
+      // Close modal when clicking outside the image
+      modal.onclick = (e) => {
+        if (e.target === modal) modal.classList.add("hidden");
+      };
     </script>
   </body>
 </html>
