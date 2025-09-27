@@ -2,48 +2,124 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <!-- Tailwind CSS CDN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tailwind Hero Scroll</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #Matrix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+        display: block;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
   </head>
-  <body class="bg-gray-900 text-gray-100 min-h-screen">
-    <header class="bg-gray-800 py-6 shadow">
-      <h1 class="text-3xl font-bold text-center mb-2">
-        George Adriane Dean P. Salise
-      </h1>
-    </header>
-    <main class="max-w-3xl mx-auto py-10 px-4">
-      <section id="about" class="mb-10">
-        <h2 class="text-2xl font-semibold mb-2">About Me</h2>
-        <p class="text-gray-300">
-          Hello! I'm a passionate developer with experience in building web
-          applications.
+  <body class="bg-gray-900 text-white">
+    <!-- Matrix Canvas Background -->
+    <canvas id="Matrix"></canvas>
+    <!-- Main Content -->
+    <div class="content">
+      <!-- HERO SECTION -->
+      <section
+        class="h-screen flex flex-col justify-center items-center relative text-center"
+      >
+        <h1 class="text-6xl md:text-8xl font-extrabold tracking-wider">
+          GEORGE SALISE
+        </h1>
+        <p class="mt-4 text-sm md:text-lg opacity-75">
+          NETWORK ENGINEER · SYSTEM ADMINISTRATOR · PENTESTER
         </p>
+        <!-- Scroll Indicator -->
+        <a
+          href="#about"
+          class="absolute bottom-6 text-gray-400 animate-bounce text-sm"
+        >
+          ↓ SCROLL
+        </a>
       </section>
-      <section id="projects" class="mb-10">
-        <h2 class="text-2xl font-semibold mb-2">My Projects</h2>
-        <ul class="space-y-4">
-          <li class="bg-gray-800 rounded p-4">
-            <h3 class="text-xl font-bold">Project 1</h3>
-            <p class="text-gray-300">Description of Project 1.</p>
-          </li>
-          <li class="bg-gray-800 rounded p-4">
-            <h3 class="text-xl font-bold">Project 2</h3>
-            <p class="text-gray-300">Description of Project 2.</p>
-          </li>
-        </ul>
+
+      <!-- ABOUT ME SECTION -->
+      <section
+        id="about"
+        class="min-h-screen text-gray-800 flex flex-col justify-center items-center"
+      >
+        <div
+          class="w-full flex flex-col items-center justify-center p-10 w-full bg-gray-900 bg-opacity-80 h-[600px]"
+        >
+          <h2 class="text-4xl font-bold mb-4 text-white">About Me</h2>
+          <div class="w-full flex justify-between items-center p-10">
+            <div class="flex flex-col gap-2 mx-auto w-[500px]">
+              <p class="text-white text-xl font-semibold">
+                George Adriane Dean P. Salise
+              </p>
+              <p class="text-white">
+                Bachelor of Science in Information Technology
+              </p>
+              <p class="text-white">2023 - 2026</p>
+            </div>
+
+            <img
+              src="./assets/jorj.jpg"
+              alt="George Salise"
+              class="w-[300px] h-[300px] rounded-full mb-4"
+            />
+
+            <div class="flex flex-col gap-2 mx-auto w-[500px] text-right">
+              <p class="text-white text-xl font-semibold">
+                I mainly specialize in
+              </p>
+              <p class="text-white">
+                Network Engineering, System Administration, and Penetration
+                Testing with a passion for cybersecurity.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
-      <section id="contact">
-        <h2 class="text-2xl font-semibold mb-2">Contact Me</h2>
-        <p class="text-gray-300">
-          If you'd like to get in touch, please reach out via email.
-        </p>
+      <section
+        id="whatIdo"
+        class="min-h-screen text-gray-800 flex flex-col justify-center items-center"
+      >
+        <div
+          class="w-full flex flex-col items-center justify-center p-10 w-full bg-gray-900 bg-opacity-80 h-[600px]"
+        >
+          <!-- Card Include -->
+          <div id="system-card-container"></div>
+          <script>
+            fetch("./cards/system-card.html")
+              .then((res) => res.text())
+              .then((html) => {
+                document.getElementById("system-card-container").innerHTML =
+                  html;
+              });
+          </script>
+        </div>
       </section>
-    </main>
-    <footer class="bg-gray-800 py-4 text-center">
-      <p class="text-gray-400">&copy; 2023 My Portfolio</p>
-    </footer>
+    </div>
+    <script src="./index.js"></script>
+    <script>
+      // Make canvas always fill the window
+      const canvas = document.getElementById("Matrix");
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+    </script>
   </body>
 </html>
