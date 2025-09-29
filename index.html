@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Tailwind Hero Scroll</title>
+    <title>Salise - Portfolio</title>
     <style>
       body,
       html {
@@ -37,16 +37,18 @@
       <section
         class="h-screen flex flex-col justify-center items-center relative text-center"
       >
-        <h1 class="text-6xl md:text-8xl font-extrabold tracking-wider">
+        <h1
+          class="text-6xl md:text-8xl font-extrabold tracking-wider text-green-300"
+        >
           GEORGE SALISE
         </h1>
-        <p class="mt-4 text-sm md:text-lg opacity-75">
+        <p class="mt-4 text-sm md:text-lg opacity-75 text-green-100">
           NETWORK ENGINEER · SYSTEM ADMINISTRATOR · PENTESTER
         </p>
         <!-- Scroll Indicator -->
         <a
           href="#about"
-          class="absolute bottom-6 text-gray-400 animate-bounce text-sm"
+          class="absolute bottom-6 text-green-100 animate-bounce text-sm"
         >
           ↓ SCROLL
         </a>
@@ -58,35 +60,37 @@
         class="min-h-screen text-gray-800 flex flex-col justify-center items-center"
       >
         <div
-          class="w-full flex flex-col items-center justify-center p-10 w-full bg-gray-900 bg-opacity-80 h-[600px]"
+          class="w-full flex flex-col md:flex-row items-center justify-center p-4 md:p-10 bg-gray-900 bg-opacity-80 h-auto md:h-[600px]"
         >
-          <h2 class="text-4xl font-bold mb-4 text-white">About Me</h2>
-          <div class="w-full flex justify-between items-center p-10">
-            <div class="flex flex-col gap-2 mx-auto w-[500px]">
-              <p class="text-white text-xl font-semibold">
-                George Adriane Dean P. Salise
-              </p>
-              <p class="text-white">
-                Bachelor of Science in Information Technology
-              </p>
-              <p class="text-white">2023 - 2026</p>
-            </div>
+          <div
+            class="flex flex-col gap-2 mx-auto w-full md:w-[500px] mb-6 md:mb-0"
+          >
+            <h2 class="text-4xl font-bold mb-4 text-green-300">About Me</h2>
+            <p class="text-green-100 text-xl font-semibold">
+              George Adriane Dean P. Salise
+            </p>
+            <p class="text-green-100 text-lg">
+              Bachelor of Science in Information Technology
+            </p>
+            <p class="text-green-100">2023 - 2026</p>
+          </div>
 
-            <img
-              src="./assets/jorj.jpg"
-              alt="George Salise"
-              class="w-[300px] h-[300px] rounded-full mb-4"
-            />
+          <img
+            src="./assets/jorj.jpg"
+            alt="George Salise"
+            class="w-40 h-40 md:w-[300px] md:h-[300px] rounded-full mb-4 mx-4"
+          />
 
-            <div class="flex flex-col gap-2 mx-auto w-[500px] text-right">
-              <p class="text-white text-xl font-semibold">
-                I mainly specialize in
-              </p>
-              <p class="text-white">
-                Network Engineering, System Administration, and Penetration
-                Testing with a passion for cybersecurity.
-              </p>
-            </div>
+          <div
+            class="flex flex-col gap-2 mx-auto w-full md:w-[500px] text-right"
+          >
+            <p class="text-green-300 text-xl font-semibold">
+              I mainly specialize in
+            </p>
+            <p class="text-green-100">
+              Network Engineering, System Administration, and Penetration
+              Testing with a passion for cybersecurity.
+            </p>
           </div>
         </div>
       </section>
@@ -99,11 +103,13 @@
         <div
           class="w-full flex flex-col items-center justify-center p-10 w-full h-[600px]"
         >
-          <h2 class="text-4xl font-bold mb-10 text-white">
+          <h2 class="text-4xl font-bold mb-10 text-green-300">
             My job is to ensure that...
           </h2>
           <!-- Card Include -->
-          <div class="flex gap-10 flex-row">
+          <div
+            class="flex flex-col md:flex-row flex-wrap gap-6 md:gap-10 justify-center items-center"
+          >
             <div id="system-card-container"></div>
             <script>
               fetch("./cards/system-card.html")
@@ -142,18 +148,18 @@
         <div
           class="w-full flex flex-col items-center justify-center p-10 bg-gray-900 bg-opacity-80 h-[700px]"
         >
-          <h2 class="text-4xl font-bold mb-8 text-white text-center">
-            Projects...<span class="pl-4 text-gray-400 text-sm">
+          <h2 class="text-4xl font-bold mb-8 text-green-300 text-center">
+            Projects...<span class="pl-4 text-green-100 text-sm">
               in relation to my skills</span
             >
           </h2>
           <div class="flex flex-row gap-8 w-full justify-center items-start">
             <!-- Description -->
-            <div class="flex-1 p-6 max-w-md">
-              <h3 class="text-xl font-bold text-white mb-2">
+            <div class="flex-1 p-4 md:p-6 max-w-md">
+              <h3 class="text-xl font-bold text-green-300 mb-2">
                 Subnet Calculator
               </h3>
-              <p class="text-white">
+              <p class="text-green-100">
                 A subnet calculator application that I developed using Java. The
                 application allows users to input an IP address and subnet mask
                 to calculate various subnetting details such as network address,
@@ -167,17 +173,17 @@
             </div>
             <!-- Images -->
             <div
-              class="flex-1 flex flex-row gap-4 justify-center items-center h-auto w-full"
+              class="flex-1 flex flex-col md:flex-row gap-4 justify-center items-center h-auto w-full"
             >
               <img
                 src="./assets/vlsm.png"
                 alt="VLSM Example"
-                class="rounded-lg w-full h-full object-contain cursor-pointer project-img"
+                class="rounded-lg w-full md:w-1/2 h-48 md:h-full object-contain cursor-pointer project-img"
               />
               <img
                 src="./assets/cidr.png"
                 alt="CIDR Example"
-                class="rounded-lg w-full h-full object-contain cursor-pointer project-img"
+                class="rounded-lg w-full md:w-1/2 h-48 md:h-full object-contain cursor-pointer project-img"
               />
             </div>
           </div>
@@ -191,11 +197,13 @@
         <div
           class="w-full flex flex-col items-center justify-center p-10 w-full h-[600px]"
         >
-          <h2 class="text-4xl font-bold mb-10 text-white">
+          <h2 class="text-4xl font-bold mb-10 text-green-300">
             Tools and Technologies I Use
           </h2>
           <!-- Card Include -->
-          <div class="flex gap-10 flex-row flex-wrap justify-center">
+          <div
+            class="flex flex-col md:flex-row flex-wrap gap-6 md:gap-10 justify-center items-center"
+          >
             <div
               class="bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl shadow-2xl p-8 flex flex-col items-center max-w-xs w-full h-96 border border-green-400"
             >
@@ -358,41 +366,41 @@
               </p>
             </div>
           </div>
-          <h2 class="text-4xl font-bold mb-10 mt-10 text-white">
+          <h2 class="text-4xl font-bold mb-10 mt-10 text-green-300">
             Languages I Use
           </h2>
           <div
-            class="flex gap-10 flex-row flex-wrap justify-center bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl shadow-2xl p-8 border border-green-500"
+            class="flex gap-10 flex-row flex-wrap justify-center bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl shadow-2xl p-4 md:p-8 border border-green-500"
           >
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
               alt="Python"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="Python"
             />
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg"
               alt="C"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="C"
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
               alt="JavaScript"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="JavaScript"
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
               alt="Java"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="Java"
             />
             <svg
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="GNU Bash"
               fill="white"
             >
@@ -404,19 +412,19 @@
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/f/ff/C-Sharp_Logo.svg"
               alt="C#"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="C#"
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg"
               alt="Go"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="Go"
             />
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Powershell_128.svg"
               alt="PowerShell"
-              class="w-20 h-20"
+              class="w-16 h-16 md:w-20 md:h-20"
               title="PowerShell"
             />
           </div>
